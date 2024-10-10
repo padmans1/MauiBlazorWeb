@@ -1,0 +1,10 @@
+/.vs/
+/src/Backend/bin/
+/src/Backend/obj/
+/src/MauiBlazorWeb.Maui/bin/
+/src/MauiBlazorWeb.Maui/obj/
+/src/MauiBlazorWeb.Web/obj/
+/src/MauiBlazorWeb.Web/bin/
+/src/MauiBlazorWeb.Shared/obj/
+/src/MauiBlazorWeb.Shared/bin/
+/src/MauiBlazorWeb.Shared.UI/obj/

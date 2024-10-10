@@ -1,0 +1,79 @@
+@page "/"
+@page "/signin"
+@    using MauiBlazorWeb.Shared.Identity
+@    using MauiBlazorWeb.Shared.UI.Interfaces
+@inject IAccountManagement acc
+<PageTitle>Sign In</PageTitle>
+
+<h2>Sign In</h2>
+
+<form>
+  <div class="imgcontainer">
+    <img src="images/img_avatar2.png" alt="Avatar" class="avatar">
+  </div>
+
+  <div class="container">
+    <label for="uname"><b>Username</b></label>
+        <input required type="text" placeholder="Enter Username" name="uname" @bind-value="email">
+
+    <label for="psw"><b>Password</b></label>
+        <input required type="password" placeholder="Enter Password" name="psw" @bind-value="password">
+
+        <button type="submit" @onclick="SubmitAsync">Login</button>
+    <label>
+      <input type="checkbox" checked="checked" name="remember"> Remember me
+    </label>
+  </div>
+
+  <div class="container" style="background-color:#f1f1f1">
+    <button type="button" class="cancelbtn">Cancel</button>
+    <span class="psw"> <a href="#">Forgot password?</a></span>
+        <div class="container signin">
+            <p>Don't have an account? <a href="/signup">Register</a>.</p>
+        </div>
+  </div >
+ 
+</form>
+
+@code {
+    private bool success, errors;
+
+    public string email { get; set; }
+    public string password { get; set; }
+    private string[] errorList = [];
+
+    public async Task SubmitAsync()
+    {
+        success = errors = false;
+        errorList = [];
+
+        if (string.IsNullOrWhiteSpace(email))
+        {
+            errors = true;
+            errorList = ["Email is required."];
+
+            return;
+        }
+
+        if (string.IsNullOrWhiteSpace(password))
+        {
+            errors = true;
+            errorList = ["Password is required."];
+
+            return;
+        }
+
+        var result = await acc.LoginAsync(email, password);
+
+        if (result.Succeeded)
+        {
+            success = true;
+            email = password = string.Empty;
+        }
+        else
+        {
+            errors = true;
+            errorList = result.ErrorList;
+        }
+    }
+}
