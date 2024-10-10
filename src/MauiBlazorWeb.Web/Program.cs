@@ -10,7 +10,8 @@ builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
 builder.Services.AddScoped<IFormFactor, FormFactor>();
-builder.Services.AddHttpClientFactory(builder.Configuration);
+//builder.Services.AddHttpClientFactory(builder.Configuration);
+builder.Services.AddServices();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

@@ -28,7 +28,9 @@ namespace MauiBlazorWeb.Maui
     		builder.Services.AddBlazorWebViewDeveloperTools();
     		builder.Logging.AddDebug();
 #endif
-            builder.Services.AddHttpClientFactory(builder.Configuration);
+            //builder.Services.AddHttpClientFactory(builder.Configuration);
+            builder.Services.AddServices();
+
             builder.Services.AddSingleton<IFormFactor, FormFactor>();
 
             return builder.Build();

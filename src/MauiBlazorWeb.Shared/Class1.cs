@@ -1,9 +1,12 @@
 ﻿namespace MauiBlazorWeb.Shared;
+
+using MauiBlazorWeb.Shared.Implementations;
+using MauiBlazorWeb.Shared.Interfaces;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System.Net.Http;
 
-public static class HttpExtension
+public static class Extensions
 {
     public static void AddHttpClientFactory(this IServiceCollection services, IConfiguration configuration)
     {
@@ -21,5 +24,9 @@ public static class HttpExtension
             client.BaseAddress = new Uri(configuration.GetValue<string>("PlatformConfig:BaseURL")!);
 
         });
+    }
+    public static void AddServices(this IServiceCollection services)
+    {
+        services.AddScoped<IAccountManagement, AccountManagement>();
     }
 }
