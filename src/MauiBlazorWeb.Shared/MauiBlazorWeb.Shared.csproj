@@ -9,7 +9,7 @@
 	<ItemGroup>
 		<PackageReference Include="Microsoft.Extensions.Http" Version="8.0.1" />
 		<PackageReference Include="Microsoft.AspNetCore.Components.Authorization" Version="8.0.10" />
-		<PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="8.0.7" />
+		<PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="8.0.4" />
 		<PackageReference Include="Microsoft.Net.Http.Headers" Version="8.0.10" />
 	</ItemGroup>
 
