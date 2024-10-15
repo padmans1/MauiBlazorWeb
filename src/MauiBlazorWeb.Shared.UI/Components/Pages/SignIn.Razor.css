@@ -12,6 +12,14 @@ body {
     padding: 16px;
     background-color: white;
 }
+.imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+}
+
+img.avatar {
+    border-radius: 50%;
+}
 
 /* Full-width input fields */
 input[type=text], input[type=password] {
